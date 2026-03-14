@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Hamara Ludo</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+color:white;
+overflow-x:hidden;
+
+/* animated background */
+
+background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1a2980);
+background-size:400% 400%;
+animation:bgmove 12s infinite;
+}
+
+@keyframes bgmove{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+/* TOP BAR */
+
+.topbar{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:15px 20px;
+
+background:linear-gradient(90deg,#ff9900,#ff3d00);
+
+box-shadow:0 0 15px black;
+
+}
+
+.logo{
+
+font-size:22px;
+font-weight:bold;
+
+}
+
+/* WALLET */
+
+.wallet{
+
+position:absolute;
+
+right:90px;
+
+background:linear-gradient(45deg,#00c853,#64dd17);
+
+padding:8px 16px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+box-shadow:0 0 10px #00ff88;
+
+}
+
+/* MENU ICON */
+
+.menuicon{
+
+font-size:28px;
+
+cursor:pointer;
+
+position:fixed;
+
+top:15px;
+
+right:20px;
+
+z-index:2000;
+
+}
+
+/* SIDE MENU */
+
+.sidemenu{
+
+position:fixed;
+
+top:0;
+
+right:-260px;
+
+width:260px;
+
+height:100%;
+
+background:#111;
+
+transition:0.4s;
+
+padding-top:70px;
+
+z-index:1000;
+
+box-shadow:-4px 0 10px black;
+
+}
+
+.sidemenu a{
+
+display:block;
+
+padding:15px;
+
+border-bottom:1px solid #333;
+
+color:white;
+
+text-decoration:none;
+
+font-size:17px;
+
+}
+
+.sidemenu a:hover{
+
+background:#333;
+
+}
+
+/* LEFT MENU */
+
+.leftmenu{
+
+position:absolute;
+
+left:30px;
+
+top:170px;
+
+}
+
+.leftmenu button{
+
+display:block;
+
+margin:18px 0;
+
+width:190px;
+
+padding:15px;
+
+border:none;
+
+border-radius:14px;
+
+background:rgba(255,255,255,0.1);
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.leftmenu button:hover{
+
+background:orange;
+
+}
+
+/* PLAY BUTTON */
+
+.main{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:70vh;
+
+}
+
+.playbtn{
+
+background:linear-gradient(45deg,#ff9900,#ff3d00);
+
+padding:22px 55px;
+
+border:none;
+
+border-radius:14px;
+
+font-size:26px;
+
+color:white;
+
+cursor:pointer;
+
+box-shadow:0 0 25px orange;
+
+animation:glow 1.5s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{box-shadow:0 0 10px orange;}
+
+to{box-shadow:0 0 45px orange;}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+<div class="logo">Hamara Ludo</div>
+
+<div class="wallet">
+<i class="fas fa-wallet"></i> ₹ 0
+</div>
+
+</div>
+
+<!-- MENU ICON -->
+
+<div class="menuicon" onclick="toggleMenu()">
+<i id="menuicon" class="fas fa-bars"></i>
+</div>
+
+<!-- SIDE MENU -->
+
+<div id="menu" class="sidemenu">
+
+<a href="#"><i class="fas fa-home"></i> Home</a>
+
+<a href="#"><i class="fas fa-cog"></i> Settings</a>
+
+<a href="#"><i class="fas fa-history"></i> History</a>
+
+<a href="#"><i class="fas fa-gift"></i> Refer & Earn</a>
+
+<a href="#"><i class="fas fa-question-circle"></i> Help</a>
+
+<a href="#"><i class="fas fa-info-circle"></i> About</a>
+
+<a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+</div>
+
+<!-- LEFT BUTTONS -->
+
+<div class="leftmenu">
+
+<button>Join Match</button>
+
+<button>My Matches</button>
+
+<button>Add Money</button>
+
+<button>Withdraw</button>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<button class="playbtn">PLAY NOW</button>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio autoplay loop>
+<source src="music2.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+
+function toggleMenu(){
+
+let menu=document.getElementById("menu")
+
+let icon=document.getElementById("menuicon")
+
+if(menu.style.right==="0px"){
+
+menu.style.right="-260px"
+
+icon.className="fas fa-bars"
+
+}else{
+
+menu.style.right="0px"
+
+icon.className="fas fa-times"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
